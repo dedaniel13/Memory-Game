@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Juego de Cartas - Encuentra las Parejas</h1>
+  <input type="number" [(ngModel)]="numberOfCards" placeholder="Escribe un número (mínimo 8)" min="8">
+  <button (click)="generateCards()">Generar Cartas</button>
+  <p>Puntaje: {{ score }}</p> <!-- Muestra el puntaje -->
+  <div id="cardContainer">
+    <div *ngFor="let card of cards; let i = index" 
+         [class.card]="true" 
+         [class.flipped]="isFlipped(card.id)"
+         (click)="toggleCard(card.id)">
+      <div class="card-inner">
+        <div class="card-front">
+          <!-- Puedes poner contenido aquí si es necesario -->
+        </div>
+        <div class="card-back">
+          <img [src]="card.image" alt="Imagen de carta">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
